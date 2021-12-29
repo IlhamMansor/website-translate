@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 app.get('/:word', (req, res) => {
     const { word } = req.params;
-    const foundWord = words.find(element => element.word === word);
+    const foundWord = words.filter(element => element.word.includes(word));
     if (foundWord) {
         res.render('word', { foundWord });
     } else {
